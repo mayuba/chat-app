@@ -1,6 +1,7 @@
 {
   "name": "chat-app",
   "version": "1.0.0",
+  "port": 4000,
   "description": "",
   "main": "index.js",
   "scripts": {
@@ -23,6 +24,10 @@
   "homepage": "https://github.com/mayuba/chat-app#readme",
   "dependencies": {
     "apollo-server-express": "^2.10.1",
+    "cors": "^2.8.5",
     "express": "^4.17.1"
+  },
+  "devDependencies": {
+    "eslint": "^6.8.0"
   }
 }
