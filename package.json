@@ -1,0 +1,23 @@
+{
+  "name": "chat-app",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "npm run lint && npm run coverage"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mayuba/chat-app.git"
+  },
+  "keywords": [
+    "chat",
+    "app"
+  ],
+  "author": "Josaphat Mayuba Ndele",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mayuba/chat-app/issues"
+  },
+  "homepage": "https://github.com/mayuba/chat-app#readme"
+}
