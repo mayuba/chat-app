@@ -43,14 +43,16 @@
 
   "messages": [
     {
-      "message": "bonjour je mappelle bonjour",
+      "message": "bonjour je mappelle salut",
       "date": "String",
-      "senderId": "1"
+      "senderId": "1",
+      "forumId": "1"
     },
     {
       "message": "bonjour je mappelle bonjour",
       "date": "String",
-      "senderId": "2"
+      "senderID": "2",
+      "forumID": "1"
     }
   ]
 }

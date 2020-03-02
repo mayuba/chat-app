@@ -1,5 +1,5 @@
 type Mutation {
   createForum: String
   createUser: String
-  sendMessage: String
+  sendMessage(input: MessageInput): Message
 }

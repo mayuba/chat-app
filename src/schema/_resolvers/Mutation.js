@@ -1,15 +1,17 @@
 class Mutation {
-  constructor({ forumService }) {
+  constructor({ forumService, messageService }) {
     this.forumService = forumService;
+    this.messageService = messageService;
     this.data = "q";
   }
 
-  sendMessage() {
-    return this.forumService.listOfForums();
+  sendMessage(args) {
+    this.messageService.createMessage(args);
   }
 
   build() {
-    const sendMessage = () => this.sendMessage();
+    const sendMessage = (parent, args) => this.sendMessage(args);
+
     return { sendMessage };
   }
 }
