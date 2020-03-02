@@ -1,13 +1,14 @@
+const sample = require("../fixtures/sample.json");
 class Database {
-  constructor() {
-    this.data = {};
+  constructor(collectionName) {
+    this.data = sample[collectionName];
   }
 
   insert(data) {
     this.data.push(data);
   }
   find() {
-    return this.data.find(data => data);
+    return this.data.map(data => data);
   }
 }
 module.exports = Database;
