@@ -1,2 +1,5 @@
-# type Mutation{
-# }
+type Mutation {
+  createForum: String
+  createUser: String
+  sendMessage: String
+}
