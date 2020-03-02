@@ -1,0 +1,13 @@
+# Comments in GraphQL strings (such as this one) start with the hash (#) symbol.
+
+# This "Message" type defines the queryable fields for every book in our data source.
+type Forum {
+  id: ID!
+  name: String
+  users: [User]
+  createDate: String
+}
+
+# The "Query" type is special: it lists all of the available queries that
+# clients can execute, along with the return type for each. In this
+# case, the "users" query returns an array of zero or more Users (defined above).

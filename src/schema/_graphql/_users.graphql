@@ -1,0 +1,8 @@
+# Comments in GraphQL strings (such as this one) start with the hash (#) symbol.
+
+# This "User" type defines the queryable fields for every book in our data source.
+type User {
+  id: ID!
+  username: String
+  picture: String
+}

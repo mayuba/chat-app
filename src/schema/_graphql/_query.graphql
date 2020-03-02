@@ -1,0 +1,6 @@
+type Query {
+  forums: String
+  getForumList: [Forum]
+  users: [User]
+  messages: [Message]
+}
