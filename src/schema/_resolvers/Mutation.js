@@ -5,8 +5,16 @@ class Mutation {
     this.data = "q";
   }
 
-  sendMessage(args) {
-    this.messageService.createMessage(args);
+  sendMessage({ input }) {
+    const userIsMemberForum = this.forumService.MemberOfForum(
+      input.userID,
+      input.forumID
+    );
+    if (userIsMemberForum.length === 1) {
+      return this.messageService.createMessage(input);
+    } else {
+      throw new Error("you are not member for this forum please join before");
+    }
   }
 
   build() {

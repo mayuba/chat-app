@@ -1,4 +1,5 @@
 //const Database = require("./src/util/database");
+const uniqid = require("uniqid");
 class ForumService {
   constructor({ forumCollection, activityCollection }) {
     this.forumCollection = forumCollection;
@@ -8,10 +9,19 @@ class ForumService {
    * get list od all forums available
    */
   listOfForums() {
-    console.log("listOfForums", this.forumCollection.find());
     return this.forumCollection.find();
   }
 
+  MemberOfForum(UserID, forumID) {
+    const datas = [];
+    this.activityCollection.find().filter(data => {
+      console.log(UserID, forumID, data);
+      if (data.forumID === forumID && data.userID === UserID) {
+        datas.push(data);
+      }
+    });
+    return datas;
+  }
   /**
    * giving list of client forum
    * @param {*} userID
@@ -22,9 +32,7 @@ class ForumService {
       .find()
       .filter(data => data.userID === userID)
       .map(activity => {
-        console.log("activity", activity);
         this.listOfForums().filter(data => {
-          console.log(datas);
           if (data.id === activity.forumID) {
             datas.push(data);
           }
@@ -32,7 +40,22 @@ class ForumService {
       });
     return datas;
   }
-  createForum(user) {}
-  joinForum(user) {}
+  createForum({ input }) {
+    return this.forumCollection.insert({
+      id: uniqid.time(),
+      message: input.message,
+      date: new Date(),
+      senderId: input.userID,
+      forumId: input.forumID
+    });
+  }
+  joinForum({ input }) {
+    return this.forumCollection.insert({
+      id: uniqid.time(),
+      userID: input.userID,
+      forumID: input.forumID,
+      addedDate: new Date()
+    });
+  }
 }
 module.exports = ForumService;
