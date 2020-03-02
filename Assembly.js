@@ -29,14 +29,6 @@ class Assembly {
     `;
 
     // Provide resolver functions for your schema fields
-    const resolvers = {
-      Query: {
-        // messages: () => null,
-        // users: () => null,
-        forums: () => "hello word"
-      }
-    };
-
     const server = new ApolloServer({ typeDefs, resolvers });
     const app = express();
 
