@@ -1,6 +1,6 @@
 type Query {
-  forums: String
-  getForumList: [Forum]
+  forums: [Forum]
+  getMyForumList(userID: ID!): [Forum]
   users: [User]
   messages: [Message]
 }
