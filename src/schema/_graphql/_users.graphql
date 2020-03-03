@@ -3,6 +3,6 @@
 # This "User" type defines the queryable fields for every book in our data source.
 type User {
   id: ID!
-  username: String
-  picture: String
+  username: String!
+  picture: String!
 }

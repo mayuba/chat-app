@@ -2,9 +2,11 @@ class Mutation {
   constructor({ forumService, messageService }) {
     this.forumService = forumService;
     this.messageService = messageService;
-    this.data = "q";
   }
-
+  /**
+   * Send email if user is member for a forum
+   * @param {*} param0
+   */
   sendMessage({ input }) {
     const userIsMemberForum = this.forumService.isMemberOfForum(
       input.userID,
@@ -16,14 +18,24 @@ class Mutation {
       throw new Error("you are not member for this forum please join before");
     }
   }
-
+  /**
+   *  Join forum
+   * @param {*} args
+   */
   joinForum(args) {
     return this.forumService.joinForum(args);
   }
-
+  /**
+   * Create new forum
+   * @param {*} param0
+   */
   createForum({ input }) {
     return this.forumService.createForum(input);
   }
+
+  /**
+   * return a mutation
+   */
   build() {
     const sendMessage = (parent, args) => this.sendMessage(args);
     const joinForum = (parent, args) => this.joinForum(args);

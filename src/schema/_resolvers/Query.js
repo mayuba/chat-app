@@ -3,7 +3,6 @@ class Query {
     this.forumService = forumService;
     this.messageService = messageService;
     this.userService = userService;
-    this.forum();
   }
   /**
    * get all forums data
@@ -12,8 +11,8 @@ class Query {
     let datas = [];
     this.forumService.listOfForums().map(data => {
       const { id, name, createDate } = data;
-      const members = this.forumService.getMembers(data.id).map(data => {
-        return this.userService.UserInfo(data)[0];
+      const members = this.forumService.getMembers(data.id).map(id => {
+        return this.userService.UserInfo(id)[0];
       });
       datas.push({
         id,
@@ -25,7 +24,7 @@ class Query {
     return datas;
   }
   /**
-   * check
+   * get all forum the user has joined
    * @param {*} args
    */
   forumHasJoined(args) {
@@ -33,8 +32,8 @@ class Query {
     const userID = args.userID;
     this.forumService.ActivityOfForums(userID).map(data => {
       const { id, name, createDate } = data;
-      const members = this.forumService.getMembers(data.id).map(data => {
-        return this.userService.UserInfo(data)[0];
+      const members = this.forumService.getMembers(data.id).map(id => {
+        return this.userService.UserInfo(id)[0];
       });
       datas.push({
         id,
@@ -45,11 +44,44 @@ class Query {
     });
     return datas;
   }
-
+  /**
+   * Get message by forumID and check if user is member of forum
+   * @param {*} args
+   */
+  getMessage(args) {
+    const isMember = this.forumService.isMemberOfForum(
+      args.userID,
+      args.forumID
+    );
+    const userInfo = this.userService.UserInfo(args.userID)[0];
+    if (isMember.length > 0 && userInfo.username) {
+      return this.messageService
+        .getMessagesByForum(args)
+        .sort(function(a, b) {
+          // Turn your strings into dates, and then subtract them
+          // to get a value that is either negative, positive, or zero.
+          return new Date(b.date) - new Date(a.date);
+        })
+        .map(data => {
+          return {
+            id: data.id,
+            message: data.message,
+            from: this.userService.UserInfo(data.senderID)[0],
+            date: new Date(data.date).toUTCString()
+          };
+        });
+    } else {
+      throw new Error("The user or forum is not exist");
+    }
+  }
+  /**
+   * return a query
+   */
   build() {
     const forums = () => this.forum();
     const getMyForumList = (parent, args) => this.forumHasJoined(args);
-    return { forums, getMyForumList };
+    const getMessages = (parent, args) => this.getMessage(args);
+    return { forums, getMyForumList, getMessages };
   }
 }
 module.exports = Query;

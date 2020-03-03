@@ -15,13 +15,13 @@ class ForumService {
    * @param {*} forumID
    */
   getMembers(forumID) {
-    let datas = [];
-    this.activityCollection.find().filter(data => {
+    let ids = [];
+    this.activityCollection.find().map(data => {
       if (data.forumID === forumID) {
-        datas.push(data.userID);
+        ids.push(data.userID);
       }
     });
-    return datas;
+    return ids;
   }
   /**
    * Check if users id member of forum
@@ -30,7 +30,7 @@ class ForumService {
    */
   isMemberOfForum(UserID, forumID) {
     let datas = [];
-    this.activityCollection.find().filter(data => {
+    this.activityCollection.find().map(data => {
       if (data.forumID === forumID && data.userID === UserID) {
         datas.push(data);
       }
@@ -47,7 +47,7 @@ class ForumService {
       .find()
       .filter(data => data.userID === userID)
       .map(activity => {
-        this.listOfForums().filter(data => {
+        this.listOfForums().map(data => {
           if (data.id === activity.forumID) {
             datas.push(data);
           }
