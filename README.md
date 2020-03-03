@@ -53,6 +53,40 @@ npm start
 └── README.md                   # Describes the project
 ```
 
+## GraphQl Type
+
+### Forum
+
+```graphql
+type Forum {
+  id: ID!
+  name: String
+  createDate: String
+  members: [User]
+}
+```
+
+### Message
+
+```graphql
+type Message {
+  id: ID!
+  message: String!
+  date: String
+  from: User
+}
+```
+
+### User
+
+```graphql
+type User {
+  id: ID!
+  username: String!
+  picture: String!
+}
+```
+
 ## GraphQl Schema
 
 ### A user can see the list of forums he has joined
@@ -76,40 +110,6 @@ query {
       picture
     }
   }
-}
-```
-
-### A user can create a new forum (and join it automatically)
-
-```graphql
-mutation {
-  createForum(input: { userID: "1", name: "new forum 1" }) {
-    id
-    name
-  }
-}
-```
-
-### A user can see the list of available forum and members by forums
-
-```graphql
-{
-  forums {
-    id
-    name
-    members {
-      username
-      picture
-    }
-  }
-}
-```
-
-### can join any forum available
-
-```graphql
-mutation {
-  joinForum(userID: "2", forumID: "1")
 }
 ```
 
@@ -140,6 +140,40 @@ mutation {
       username
       picture
     }
+  }
+}
+```
+
+### A user can see the list of available forum and members by forums
+
+```graphql
+{
+  forums {
+    id
+    name
+    members {
+      username
+      picture
+    }
+  }
+}
+```
+
+### can join any forum available
+
+```graphql
+mutation {
+  joinForum(userID: "2", forumID: "1")
+}
+```
+
+### A user can create a new forum (and join it automatically)
+
+```graphql
+mutation {
+  createForum(input: { userID: "1", name: "new forum 1" }) {
+    id
+    name
   }
 }
 ```
