@@ -20,12 +20,12 @@
     {
       "id": "1",
       "name": "forum1",
-      "createDate": "10/10/10"
+      "createDate": 1583248239303
     },
     {
       "id": "2",
       "name": "forum2",
-      "createDate": "10/10/10"
+      "createDate": 1583248239304
     }
   ],
   "activityforum": [
@@ -49,16 +49,32 @@
 
   "messages": [
     {
-      "message": "bonjour je mappelle salut",
-      "date": "String",
-      "senderId": "1",
-      "forumId": "1"
+      "id": "123",
+      "message": "bonjour je mappelle dev1",
+      "date": 1583248239303,
+      "senderID": "1",
+      "forumID": "1"
     },
     {
-      "message": "bonjour je mappelle bonjour",
-      "date": "String",
+      "id": "124",
+      "message": "bonjour je mappelle dev2",
+      "date": 1583248299999,
       "senderID": "2",
       "forumID": "1"
+    },
+    {
+      "id": "123",
+      "message": "bonjour je mappelle dev3",
+      "date": 1583248239303,
+      "senderID": "3",
+      "forumID": "2"
+    },
+    {
+      "id": "124",
+      "message": "bonjour je mappelle dev2",
+      "date": 1583888299999,
+      "senderID": "2",
+      "forumID": "2"
     }
   ]
 }
