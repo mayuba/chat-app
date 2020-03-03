@@ -10,7 +10,6 @@ class Mutation {
       input.userID,
       input.forumID
     );
-    console.log(userIsMemberForum.length);
     if (userIsMemberForum.length === 1) {
       return this.messageService.createMessage(input);
     } else {
