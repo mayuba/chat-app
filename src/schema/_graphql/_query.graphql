@@ -1,0 +1,8 @@
+# The "Query" type is special: it lists all of the available queries that
+# clients can execute, along with the return type for each. In this
+type Query {
+  forums: [Forum]
+  getMyForumList(userID: ID!): [Forum]
+  users: [User]
+  getMessages(userID: ID!, forumID: ID!): [Message]
+}
