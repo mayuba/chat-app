@@ -52,6 +52,12 @@
     {
       "userID": "3",
       "forumID": "1",
+      "role": "USER",
+      "status": "waiting"
+    },
+    {
+      "userID": "1",
+      "forumID": "1",
       "role": "ADMIN",
       "status": "approved"
     }
