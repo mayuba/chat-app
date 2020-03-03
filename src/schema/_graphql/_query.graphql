@@ -5,4 +5,5 @@ type Query {
   getMyForumList(userID: ID!): [Forum]
   users: [User]
   getMessages(userID: ID!, forumID: ID!): [Message]
+  checkWaiting(adminID: ID!): [ForumUser]
 }
