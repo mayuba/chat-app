@@ -12,7 +12,10 @@ class Mutation {
       input.userID,
       input.forumID
     );
-    if (userIsMemberForum.length === 1) {
+    if (
+      (userIsMemberForum.length === 1 && userIsMemberForum.role === "ADMIN") ||
+      userIsMemberForum.status === "approved"
+    ) {
       return this.messageService.createMessage(input);
     } else {
       throw new Error("you are not member for this forum please join before");
