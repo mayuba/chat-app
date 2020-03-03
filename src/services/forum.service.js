@@ -15,7 +15,6 @@ class ForumService {
   MemberOfForum(UserID, forumID) {
     const datas = [];
     this.activityCollection.find().filter(data => {
-      console.log(UserID, forumID, data);
       if (data.forumID === forumID && data.userID === UserID) {
         datas.push(data);
       }
@@ -40,21 +39,19 @@ class ForumService {
       });
     return datas;
   }
-  createForum({ input }) {
+  createForum(input) {
     return this.forumCollection.insert({
       id: uniqid.time(),
-      message: input.message,
-      date: new Date(),
-      senderId: input.userID,
-      forumId: input.forumID
+      name: input.userID,
+      createDate: new Date()
     });
   }
-  joinForum({ input }) {
+  joinForum({ userID, forumID }) {
     return this.forumCollection.insert({
       id: uniqid.time(),
-      userID: input.userID,
-      forumID: input.forumID,
-      addedDate: new Date()
+      userID: userID,
+      forumID: forumID,
+      createDate: new Date()
     });
   }
 }

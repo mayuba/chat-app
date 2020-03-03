@@ -8,7 +8,6 @@ class Query {
 
   forum() {
     const forum = this.forumService.listOfForums();
-    console.log(creator);
     return {
       id: forum.id,
       name: forum.name

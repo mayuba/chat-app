@@ -3,16 +3,18 @@ class MessageService {
   constructor({ messageCollection }) {
     this.messageCollection = messageCollection;
   }
-  createMessage({ input }) {
+  createMessage({ message, userID, forumID }) {
     return this.messageCollection.insert({
       id: uniqid.time(),
-      message: input.message,
+      message: message,
       date: new Date(),
-      senderId: input.userID,
-      forumId: input.forumID
+      senderId: userID,
+      forumId: forumID
     });
   }
-  createForum(user) {}
-  joinForum(user) {}
+
+  getMessagesByForum(forumID) {
+    return this.messageCollection.filter(data => data.forumId === forumID);
+  }
 }
 module.exports = MessageService;

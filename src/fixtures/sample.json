@@ -20,13 +20,11 @@
     {
       "id": "1",
       "name": "bonjour1",
-      "creatorID": 1,
       "createDate": "10/10/10"
     },
     {
       "id": "2",
       "name": "bonjour2",
-      "creatorID": 1,
       "createDate": "10/10/10"
     }
   ],
@@ -36,7 +34,7 @@
       "forumID": "1"
     },
     {
-      "userID": "1",
+      "userID": "2",
       "forumID": "2"
     }
   ],

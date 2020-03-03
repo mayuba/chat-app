@@ -10,6 +10,7 @@ class Mutation {
       input.userID,
       input.forumID
     );
+    console.log(userIsMemberForum.length);
     if (userIsMemberForum.length === 1) {
       return this.messageService.createMessage(input);
     } else {
@@ -17,9 +18,12 @@ class Mutation {
     }
   }
 
+  joinForum({ input }) {
+    this.forumService.joinForum(input);
+  }
   build() {
     const sendMessage = (parent, args) => this.sendMessage(args);
-
+    const joinForum = (parent, args) => this.joinForum(args);
     return { sendMessage };
   }
 }
