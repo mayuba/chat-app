@@ -1,4 +1,5 @@
 const uniqid = require("uniqid");
+
 class ForumService {
   constructor({ forumCollection, activityCollection }) {
     this.forumCollection = forumCollection;
@@ -76,7 +77,12 @@ class ForumService {
         type: type
       });
       if (data) {
-        this.joinForum({ forumID: id, userID, role: "ADMIN" });
+        this.joinForum({
+          forumID: id,
+          userID,
+          role: "ADMIN",
+          status: "approved"
+        });
         return data;
       }
     }
@@ -97,8 +103,7 @@ class ForumService {
         id: uniqid.time(),
         userID: userID,
         forumID: forumID,
-        role: role ? role : "USER",
-        addedDate: new Date()
+        role: role ? role : "USER"
       });
       if (data) {
         return "you are now join in the forum";
