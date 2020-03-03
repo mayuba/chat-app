@@ -29,8 +29,21 @@ class Query {
    * @param {*} args
    */
   forumHasJoined(args) {
+    let datas = [];
     const userID = args.userID;
-    return this.forumService.ActivityOfForums(userID);
+    this.forumService.ActivityOfForums(userID).map(data => {
+      const { id, name, createDate } = data;
+      const members = this.forumService.getMembers(data.id).map(data => {
+        return this.userService.UserInfo(data)[0];
+      });
+      datas.push({
+        id,
+        name,
+        createDate,
+        members
+      });
+    });
+    return datas;
   }
 
   build() {
