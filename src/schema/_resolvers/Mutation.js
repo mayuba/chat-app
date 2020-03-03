@@ -19,12 +19,17 @@ class Mutation {
   }
 
   joinForum({ input }) {
-    this.forumService.joinForum(input);
+    return this.forumService.joinForum(input);
+  }
+
+  createForum({ input }) {
+    return this.forumService.createForum(input);
   }
   build() {
     const sendMessage = (parent, args) => this.sendMessage(args);
     const joinForum = (parent, args) => this.joinForum(args);
-    return { sendMessage };
+    const createForum = (parent, args) => this.createForum(args);
+    return { sendMessage, joinForum, createForum };
   }
 }
 module.exports = Mutation;

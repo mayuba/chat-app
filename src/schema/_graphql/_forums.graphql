@@ -5,6 +5,7 @@ type Forum {
   id: ID!
   name: String
   createDate: String
+  members: [User]
 }
 
 input ForumInput {

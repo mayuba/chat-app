@@ -8,10 +8,8 @@ class Query {
 
   forum() {
     const forum = this.forumService.listOfForums();
-    return {
-      id: forum.id,
-      name: forum.name
-    };
+
+    return forum;
   }
 
   forumHasJoined(args) {

@@ -39,15 +39,30 @@ class ForumService {
       });
     return datas;
   }
-  createForum(input) {
-    return this.forumCollection.insert({
-      id: uniqid.time(),
-      name: input.userID,
+  /**
+   * Create new forum and join automatically
+   * @param {*} param0
+   */
+  createForum({ name, userID }) {
+    const id = uniqid.time();
+
+    const data = this.forumCollection.insert({
+      id: id,
+      name: name,
       createDate: new Date()
     });
+    if (data) {
+      this.joinForum({ userID: id, userID });
+    }
+    return data;
   }
+
+  /**
+   * Join this forum with id
+   * @param {} param0
+   */
   joinForum({ userID, forumID }) {
-    return this.forumCollection.insert({
+    return this.activityCollection.insert({
       id: uniqid.time(),
       userID: userID,
       forumID: forumID,

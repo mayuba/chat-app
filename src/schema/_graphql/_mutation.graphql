@@ -1,5 +1,6 @@
 type Mutation {
   createForum(input: ForumInput): Forum
   createUser: User
+  joinForum: Forum
   sendMessage(input: MessageInput): Message
 }
