@@ -40,7 +40,7 @@
     {
       "userID": "2",
       "forumID": "2",
-      "role": "USER",
+      "role": "ADMIN",
       "status": "approved"
     },
     {
@@ -49,12 +49,7 @@
       "role": "USER",
       "status": "waiting"
     },
-    {
-      "userID": "3",
-      "forumID": "1",
-      "role": "USER",
-      "status": "waiting"
-    },
+
     {
       "userID": "1",
       "forumID": "1",
