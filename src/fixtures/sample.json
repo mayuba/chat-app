@@ -33,19 +33,23 @@
   "activityforum": [
     {
       "userID": "1",
-      "forumID": "2"
+      "forumID": "2",
+      "role": "USER"
     },
     {
       "userID": "2",
-      "forumID": "2"
+      "forumID": "2",
+      "role": "USER"
     },
     {
       "userID": "2",
-      "forumID": "1"
+      "forumID": "1",
+      "role": "USER"
     },
     {
       "userID": "3",
-      "forumID": "1"
+      "forumID": "1",
+      "role": "ADMIN"
     }
   ],
 

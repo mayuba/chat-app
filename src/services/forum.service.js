@@ -76,7 +76,7 @@ class ForumService {
         type: type
       });
       if (data) {
-        this.joinForum({ forumID: id, userID });
+        this.joinForum({ forumID: id, userID, role: "ADMIN" });
         return data;
       }
     }
@@ -86,7 +86,7 @@ class ForumService {
    * Join this forum with id
    * @param {} param0
    */
-  joinForum({ userID, forumID }) {
+  joinForum({ userID, forumID, role }) {
     const duplicat = this.activityCollection
       .find()
       .filter(data => data.userID === userID && data.forumID === forumID);
@@ -97,6 +97,7 @@ class ForumService {
         id: uniqid.time(),
         userID: userID,
         forumID: forumID,
+        role: role ? role : "USER",
         addedDate: new Date()
       });
       if (data) {
