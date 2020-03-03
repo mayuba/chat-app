@@ -1,6 +1,6 @@
 type Mutation {
   createForum(input: ForumInput): Forum
   createUser: User
-  joinForum: Forum
+  joinForum(userID: ID!, forumID: ID!): String
   sendMessage(input: MessageInput): Message
 }

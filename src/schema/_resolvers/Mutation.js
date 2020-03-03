@@ -17,8 +17,8 @@ class Mutation {
     }
   }
 
-  joinForum({ input }) {
-    return this.forumService.joinForum(input);
+  joinForum(args) {
+    return this.forumService.joinForum(args);
   }
 
   createForum({ input }) {

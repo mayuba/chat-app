@@ -1,4 +1,3 @@
-//const Database = require("./src/util/database");
 const uniqid = require("uniqid");
 class ForumService {
   constructor({ forumCollection, activityCollection }) {
@@ -87,12 +86,22 @@ class ForumService {
    * @param {} param0
    */
   joinForum({ userID, forumID }) {
-    return this.activityCollection.insert({
-      id: uniqid.time(),
-      userID: userID,
-      forumID: forumID,
-      createDate: new Date()
-    });
+    const duplicat = this.activityCollection
+      .find()
+      .filter(data => data.userID === userID && data.forumID === forumID);
+    if (duplicat.length > 0) {
+      throw new Error(`The user ${userID} has already joined ${forumID}`);
+    } else {
+      const data = this.activityCollection.insert({
+        id: uniqid.time(),
+        userID: userID,
+        forumID: forumID,
+        addedDate: new Date()
+      });
+      if (data) {
+        return "you are now join in the forum";
+      }
+    }
   }
 }
 module.exports = ForumService;
