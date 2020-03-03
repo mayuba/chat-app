@@ -46,10 +46,11 @@ class ForumService {
     let datas = [];
     this.activityCollection
       .find()
-      .filter(data => data.userID === userID)
+      .filter(data => data.userID === userID && data.status === "approved")
       .map(activity => {
         this.listOfForums().map(data => {
           if (data.id === activity.forumID) {
+            console.log(activity);
             datas.push(data);
           }
         });
