@@ -18,7 +18,9 @@ class Mutation {
     ) {
       return this.messageService.createMessage(input);
     } else {
-      throw new Error("you are not member for this forum please join before");
+      throw new Error(
+        "you are not member for this forum or your request is waiting to approved"
+      );
     }
   }
   /**
