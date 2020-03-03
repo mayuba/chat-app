@@ -11,4 +11,10 @@ type Forum {
 input ForumInput {
   userID: ID!
   name: String!
+  type: TypeForum!
+}
+
+enum TypeForum {
+  PRIVATE
+  PUBLIC
 }

@@ -59,7 +59,7 @@ class ForumService {
    * Create new forum and join automatically
    * @param {*} param0
    */
-  createForum({ name, userID }) {
+  createForum({ name, userID, type }) {
     const id = uniqid.time();
     const duplicat = this.forumCollection
       .find()
@@ -72,7 +72,8 @@ class ForumService {
       const data = this.forumCollection.insert({
         id: id,
         name: name,
-        createDate: new Date()
+        createDate: new Date(),
+        type: type
       });
       if (data) {
         this.joinForum({ forumID: id, userID });

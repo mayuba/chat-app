@@ -10,16 +10,18 @@ class Query {
   forum() {
     let datas = [];
     this.forumService.listOfForums().map(data => {
-      const { id, name, createDate } = data;
+      const { id, name, createDate, type } = data;
       const members = this.forumService.getMembers(data.id).map(id => {
         return this.userService.UserInfo(id)[0];
       });
-      datas.push({
-        id,
-        name,
-        createDate,
-        members
-      });
+      if (type === "PUBLIC") {
+        datas.push({
+          id,
+          name,
+          createDate,
+          members
+        });
+      }
     });
     return datas;
   }

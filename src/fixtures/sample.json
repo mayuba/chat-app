@@ -20,12 +20,14 @@
     {
       "id": "1",
       "name": "forum1",
-      "createDate": 1583248239303
+      "createDate": 1583248239303,
+      "type": "PRIVATE"
     },
     {
       "id": "2",
       "name": "forum2",
-      "createDate": 1583248239304
+      "createDate": 1583248239304,
+      "type": "PUBLIC"
     }
   ],
   "activityforum": [
