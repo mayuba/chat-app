@@ -45,16 +45,24 @@ class ForumService {
    */
   createForum({ name, userID }) {
     const id = uniqid.time();
-
-    const data = this.forumCollection.insert({
-      id: id,
-      name: name,
-      createDate: new Date()
-    });
-    if (data) {
-      this.joinForum({ userID: id, userID });
+    const duplicat = this.forumCollection
+      .find()
+      .filter(data => data.name === name);
+    if (duplicat.length > 0) {
+      throw new Error(
+        `The forum name ${name} is exist. please create new forum name`
+      );
+    } else {
+      const data = this.forumCollection.insert({
+        id: id,
+        name: name,
+        createDate: new Date()
+      });
+      if (data) {
+        this.joinForum({ forumID: id, userID });
+        return data;
+      }
     }
-    return data;
   }
 
   /**
