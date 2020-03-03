@@ -8,13 +8,15 @@ class MessageService {
       id: uniqid.time(),
       message: message,
       date: new Date(),
-      senderId: userID,
-      forumId: forumID
+      senderID: userID,
+      forumID: forumID
     });
   }
 
-  getMessagesByForum(forumID) {
-    return this.messageCollection.filter(data => data.forumId === forumID);
+  getMessagesByForum({ forumID }) {
+    return this.messageCollection
+      .find()
+      .filter(data => data.forumID === forumID);
   }
 }
 module.exports = MessageService;
