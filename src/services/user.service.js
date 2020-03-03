@@ -4,7 +4,14 @@ class UserService {
     this.userCollection = userCollection;
   }
   UserInfo(userId) {
-    return this.userCollection.find().map(data => (data.id = userId));
+    let datas = [];
+    this.userCollection.find().map(data => {
+      if (data.id === userId) {
+        datas.push(data);
+      }
+    });
+
+    return datas;
   }
 }
 module.exports = UserService;

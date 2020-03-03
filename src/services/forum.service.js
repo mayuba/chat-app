@@ -11,9 +11,26 @@ class ForumService {
   listOfForums() {
     return this.forumCollection.find();
   }
-
-  MemberOfForum(UserID, forumID) {
-    const datas = [];
+  /**
+   * get Members of forum
+   * @param {*} forumID
+   */
+  getMembers(forumID) {
+    let datas = [];
+    this.activityCollection.find().filter(data => {
+      if (data.forumID === forumID) {
+        datas.push(data.userID);
+      }
+    });
+    return datas;
+  }
+  /**
+   * Check if users id member of forum
+   * @param {*} UserID
+   * @param {*} forumID
+   */
+  isMemberOfForum(UserID, forumID) {
+    let datas = [];
     this.activityCollection.find().filter(data => {
       if (data.forumID === forumID && data.userID === UserID) {
         datas.push(data);
@@ -26,7 +43,7 @@ class ForumService {
    * @param {*} userID
    */
   ActivityOfForums(userID) {
-    const datas = [];
+    let datas = [];
     this.activityCollection
       .find()
       .filter(data => data.userID === userID)

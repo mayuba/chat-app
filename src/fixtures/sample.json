@@ -1,17 +1,17 @@
 {
   "users": [
     {
-      "id": 1,
+      "id": "1",
       "username": "dev1",
       "picture": "image1.png"
     },
     {
-      "id": 2,
+      "id": "2",
       "username": "dev2",
       "picture": "image2.png"
     },
     {
-      "id": 3,
+      "id": "3",
       "username": "dev3",
       "picture": "image3.png"
     }
@@ -19,23 +19,31 @@
   "forums": [
     {
       "id": "1",
-      "name": "bonjour1",
+      "name": "forum1",
       "createDate": "10/10/10"
     },
     {
       "id": "2",
-      "name": "bonjour2",
+      "name": "forum2",
       "createDate": "10/10/10"
     }
   ],
   "activityforum": [
     {
-      "userID": "2",
-      "forumID": "1"
+      "userID": "1",
+      "forumID": "2"
     },
     {
       "userID": "2",
       "forumID": "2"
+    },
+    {
+      "userID": "2",
+      "forumID": "1"
+    },
+    {
+      "userID": "3",
+      "forumID": "1"
     }
   ],
 

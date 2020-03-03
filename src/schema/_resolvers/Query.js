@@ -3,15 +3,31 @@ class Query {
     this.forumService = forumService;
     this.messageService = messageService;
     this.userService = userService;
-    this.forumHasJoined(2);
+    this.forum();
   }
-
+  /**
+   * get all forums data
+   */
   forum() {
-    const forum = this.forumService.listOfForums();
-
-    return forum;
+    let datas = [];
+    this.forumService.listOfForums().map(data => {
+      const { id, name, createDate } = data;
+      const members = this.forumService.getMembers(data.id).map(data => {
+        return this.userService.UserInfo(data)[0];
+      });
+      datas.push({
+        id,
+        name,
+        createDate,
+        members
+      });
+    });
+    return datas;
   }
-
+  /**
+   * check
+   * @param {*} args
+   */
   forumHasJoined(args) {
     const userID = args.userID;
     return this.forumService.ActivityOfForums(userID);

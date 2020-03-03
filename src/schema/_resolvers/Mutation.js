@@ -6,7 +6,7 @@ class Mutation {
   }
 
   sendMessage({ input }) {
-    const userIsMemberForum = this.forumService.MemberOfForum(
+    const userIsMemberForum = this.forumService.isMemberOfForum(
       input.userID,
       input.forumID
     );
