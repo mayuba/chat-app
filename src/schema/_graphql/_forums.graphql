@@ -7,10 +7,6 @@ type Forum {
   createDate: String
   members: [User]
 }
-type ForumUser {
-  user: User
-  Forum: [Forum]
-}
 
 input ForumInput {
   userID: ID!
