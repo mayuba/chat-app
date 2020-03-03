@@ -6,3 +6,8 @@ type User {
   username: String!
   picture: String!
 }
+
+enum Role {
+  USER
+  ADMIN
+}

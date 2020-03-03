@@ -105,5 +105,9 @@ class ForumService {
       }
     }
   }
+
+  changeStatus({ adminID, userID, status }) {
+    console.log(adminID, userID, status);
+  }
 }
 module.exports = ForumService;

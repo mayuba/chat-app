@@ -18,3 +18,9 @@ enum TypeForum {
   PRIVATE
   PUBLIC
 }
+
+enum Status {
+  approved
+  refused
+  waiting
+}

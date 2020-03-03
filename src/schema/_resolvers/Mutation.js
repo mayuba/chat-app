@@ -32,7 +32,13 @@ class Mutation {
   createForum({ input }) {
     return this.forumService.createForum(input);
   }
-
+  /**
+   * accepted or refused user in forum
+   * @param {*} args
+   */
+  changeStatus(args) {
+    this.forumService.changeStatus(args);
+  }
   /**
    * return a mutation
    */
@@ -40,6 +46,7 @@ class Mutation {
     const sendMessage = (parent, args) => this.sendMessage(args);
     const joinForum = (parent, args) => this.joinForum(args);
     const createForum = (parent, args) => this.createForum(args);
+    const changeStatus = (parent, args) => this.createForum(args);
     return { sendMessage, joinForum, createForum };
   }
 }
