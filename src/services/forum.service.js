@@ -92,27 +92,77 @@ class ForumService {
    * Join this forum with id
    * @param {} param0
    */
-  joinForum({ userID, forumID, role }) {
+  joinForum({ userID, forumID, role, status }) {
+    let myreturn = "";
     const duplicat = this.activityCollection
       .find()
       .filter(data => data.userID === userID && data.forumID === forumID);
+
     if (duplicat.length > 0) {
-      throw new Error(`The user ${userID} has already joined ${forumID}`);
+      throw new Error(
+        `The user ${userID} has already joined ${forumID}, if forum is private please waiting approved`
+      );
     } else {
-      const data = this.activityCollection.insert({
-        id: uniqid.time(),
-        userID: userID,
-        forumID: forumID,
-        role: role ? role : "USER"
+      this.forumCollection.find().map(data => {
+        if (data.id === forumID && data.type === "PRIVATE") {
+          const data = this.activityCollection.insert({
+            id: uniqid.time(),
+            userID: userID,
+            forumID: forumID,
+            role: role ? role : "USER",
+            status: status ? status : "waiting"
+          });
+          if (data) {
+            myreturn =
+              "your request was sent with status waiting, please wait to approved";
+          }
+        } else if (data.id === forumID && data.type === "PUBLIC") {
+          const data = (myreturn = this.activityCollection.insert({
+            id: uniqid.time(),
+            userID: userID,
+            forumID: forumID,
+            role: role ? role : "USER",
+            status: status ? status : "approved"
+          }));
+          if (data) {
+            myreturn = "you are join now in forum";
+          }
+        }
       });
-      if (data) {
-        return "you are now join in the forum";
+    }
+    return myreturn;
+  }
+  /**
+   * admin can change status of request to join forum
+   * @param {*} param0
+   */
+  changeStatus({ adminID, userID, forumID, newStatus }) {
+    const all = this.activityCollection.find();
+    const admin = all.filter(
+      data =>
+        data.userID === adminID &&
+        data.forumID === forumID &&
+        data.role === "ADMIN"
+    );
+    for (var i in all) {
+      if (admin[0]) {
+        if (
+          all[i].userID == userID &&
+          all[i].forumID === forumID &&
+          (all[i].status === "waiting" || all[i].status === "refused")
+        ) {
+          return this.activityCollection.updateStatus(i, newStatus);
+        } else if (
+          all[i].userID == userID &&
+          all[i].forumID === forumID &&
+          all[i].status === "approved"
+        ) {
+          throw new Error(`The user ${userID} has already joined ${forumID}`);
+        }
+      } else {
+        throw new Error(`you are not admin`);
       }
     }
-  }
-
-  changeStatus({ adminID, userID, status }) {
-    console.log(adminID, userID, status);
   }
 }
 module.exports = ForumService;

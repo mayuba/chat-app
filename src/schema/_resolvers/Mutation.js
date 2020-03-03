@@ -13,8 +13,9 @@ class Mutation {
       input.forumID
     );
     if (
-      (userIsMemberForum.length === 1 && userIsMemberForum.role === "ADMIN") ||
-      userIsMemberForum.status === "approved"
+      userIsMemberForum.length === 1 &&
+      (userIsMemberForum[0].role === "ADMIN" ||
+        userIsMemberForum[0].status === "approved")
     ) {
       return this.messageService.createMessage(input);
     } else {
@@ -42,7 +43,7 @@ class Mutation {
    * @param {*} args
    */
   changeStatus(args) {
-    this.forumService.changeStatus(args);
+    return this.forumService.changeStatus(args);
   }
   /**
    * return a mutation
@@ -51,8 +52,8 @@ class Mutation {
     const sendMessage = (parent, args) => this.sendMessage(args);
     const joinForum = (parent, args) => this.joinForum(args);
     const createForum = (parent, args) => this.createForum(args);
-    const changeStatus = (parent, args) => this.createForum(args);
-    return { sendMessage, joinForum, createForum };
+    const changeStatus = (parent, args) => this.changeStatus(args);
+    return { sendMessage, joinForum, createForum, changeStatus };
   }
 }
 module.exports = Mutation;
