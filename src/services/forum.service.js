@@ -50,7 +50,6 @@ class ForumService {
       .map(activity => {
         this.listOfForums().map(data => {
           if (data.id === activity.forumID) {
-            console.log(activity);
             datas.push(data);
           }
         });
