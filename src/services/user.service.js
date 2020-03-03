@@ -1,4 +1,3 @@
-//const Database = require("./src/util/database");
 class UserService {
   constructor({ userCollection }) {
     this.userCollection = userCollection;
@@ -10,7 +9,6 @@ class UserService {
         datas.push(data);
       }
     });
-
     return datas;
   }
 }
