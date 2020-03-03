@@ -166,7 +166,7 @@ mutation {
 👤 **Josaphat Mayuba Ndele**
 
 - Github: [@mayuba](https://github.com/mayuba)
-- LinkedIn: [@josaphat mayuba ndele](https://linkedin.com/in/josaphat mayuba ndele)
+- LinkedIn: [@josaphat mayuba ndele](https://www.linkedin.com/in/josaphat-mayuba-ndele-18474296/)
 
 ## 🤝 Contributing
 
