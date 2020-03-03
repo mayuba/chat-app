@@ -9,9 +9,9 @@ type Message {
 }
 
 input MessageInput {
-  message: String
-  forumID: String
-  userID: String
+  message: String!
+  forumID: ID!
+  userID: ID!
 }
 
 # The "Query" type is special: it lists all of the available queries that
