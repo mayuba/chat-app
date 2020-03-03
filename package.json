@@ -4,6 +4,10 @@
   "port": 4000,
   "description": "",
   "main": "index.js",
+  "engines": {
+    "npm": ">=5.5.0",
+    "node": ">=9.3.0"
+  },
   "scripts": {
     "start": "node index.js",
     "test": "npm run lint && npm run coverage",
