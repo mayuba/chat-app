@@ -87,6 +87,22 @@ type User {
 }
 ```
 
+### Enum
+
+````graphql
+enum TypeForum {
+  PRIVATE
+  PUBLIC
+}
+
+```graphql
+enum Status {
+  approved
+  refused
+  waiting
+}
+````
+
 ## GraphQl Schema
 
 ### A user can see the list of forums he has joined
