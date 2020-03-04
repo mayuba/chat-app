@@ -169,14 +169,12 @@ mutation {
 
 ### A user can create a new forum (and join it automatically)
 
-```graphql
+````graphql
 mutation {
-  createForum(input: { userID: "1", name: "new forum 1" }) {
-    id
+  createForum(input: { userID: "3", name: "forum test", type: PRIVATE }) {
     name
   }
 }
-```
 
 ### post a message in the forum
 
@@ -192,6 +190,14 @@ mutation {
     date
     message
   }
+}
+````
+
+#### If the request is accepted, the user automatically joins the forum.
+
+```graphql
+mutation {
+  changeStatus(adminID: "1", userID: "3", forumID: "1", newStatus: approved)
 }
 ```
 
