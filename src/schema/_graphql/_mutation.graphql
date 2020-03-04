@@ -1,0 +1,8 @@
+# The "Mutation" type is special: it lists all of the available queries that
+# clients can execute, along with the return type for each. In this
+type Mutation {
+  createForum(input: ForumInput): Forum
+  createUser: User
+  joinForum(userID: ID!, forumID: ID!): String
+  sendMessage(input: MessageInput): Message
+}
