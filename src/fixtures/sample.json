@@ -20,30 +20,41 @@
     {
       "id": "1",
       "name": "forum1",
-      "createDate": 1583248239303
+      "createDate": 1583248239303,
+      "type": "PRIVATE"
     },
     {
       "id": "2",
       "name": "forum2",
-      "createDate": 1583248239304
+      "createDate": 1583248239304,
+      "type": "PUBLIC"
     }
   ],
   "activityforum": [
     {
       "userID": "1",
-      "forumID": "2"
+      "forumID": "2",
+      "role": "USER",
+      "status": "approved"
     },
     {
       "userID": "2",
-      "forumID": "2"
+      "forumID": "2",
+      "role": "ADMIN",
+      "status": "approved"
     },
     {
       "userID": "2",
-      "forumID": "1"
+      "forumID": "1",
+      "role": "USER",
+      "status": "waiting"
     },
+
     {
-      "userID": "3",
-      "forumID": "1"
+      "userID": "1",
+      "forumID": "1",
+      "role": "ADMIN",
+      "status": "approved"
     }
   ],
 

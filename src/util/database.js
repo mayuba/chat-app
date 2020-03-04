@@ -21,5 +21,14 @@ class Database {
   find() {
     return this.data.map(data => data);
   }
+  /**
+   * Update data
+   * @param {*} key
+   * @param {*} data
+   */
+  updateStatus(index, value) {
+    this.data[index].status = value;
+    return `status change for ${value}`;
+  }
 }
 module.exports = Database;

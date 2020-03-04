@@ -5,4 +5,10 @@ type Mutation {
   createUser: User
   joinForum(userID: ID!, forumID: ID!): String
   sendMessage(input: MessageInput): Message
+  changeStatus(
+    adminID: ID!
+    userID: ID!
+    forumID: ID!
+    newStatus: Status!
+  ): String
 }
