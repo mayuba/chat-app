@@ -36,6 +36,8 @@ npm install
 npm start
 ```
 
+- Browse to [http://localhost:4000/graphql](http://localhost:4000/graphql)
+
 ## Directory layout
 
 ```
@@ -191,6 +193,7 @@ mutation {
     name
   }
 }
+```
 
 ### post a message in the forum
 
