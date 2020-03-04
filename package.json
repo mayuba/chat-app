@@ -1,0 +1,42 @@
+{
+  "name": "chat-app",
+  "version": "1.0.0",
+  "port": 4000,
+  "description": "",
+  "main": "index.js",
+  "engines": {
+    "npm": ">=5.5.0",
+    "node": ">=9.3.0"
+  },
+  "scripts": {
+    "start": "node index.js",
+    "test": "npm run lint && npm run coverage",
+    "watch": "nodemon index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mayuba/chat-app.git"
+  },
+  "keywords": [
+    "chat",
+    "app"
+  ],
+  "author": "Josaphat Mayuba Ndele",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mayuba/chat-app/issues"
+  },
+  "homepage": "https://github.com/mayuba/chat-app#readme",
+  "dependencies": {
+    "apollo-server-express": "^2.10.1",
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "file-system": "^2.2.2",
+    "fs": "0.0.1-security",
+    "uniqid": "^5.2.0"
+  },
+  "devDependencies": {
+    "eslint": "^6.8.0",
+    "nodemon": "^2.0.2"
+  }
+}

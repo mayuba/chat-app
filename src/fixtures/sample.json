@@ -1,0 +1,80 @@
+{
+  "users": [
+    {
+      "id": "1",
+      "username": "dev1",
+      "picture": "image1.png"
+    },
+    {
+      "id": "2",
+      "username": "dev2",
+      "picture": "image2.png"
+    },
+    {
+      "id": "3",
+      "username": "dev3",
+      "picture": "image3.png"
+    }
+  ],
+  "forums": [
+    {
+      "id": "1",
+      "name": "forum1",
+      "createDate": 1583248239303
+    },
+    {
+      "id": "2",
+      "name": "forum2",
+      "createDate": 1583248239304
+    }
+  ],
+  "activityforum": [
+    {
+      "userID": "1",
+      "forumID": "2"
+    },
+    {
+      "userID": "2",
+      "forumID": "2"
+    },
+    {
+      "userID": "2",
+      "forumID": "1"
+    },
+    {
+      "userID": "3",
+      "forumID": "1"
+    }
+  ],
+
+  "messages": [
+    {
+      "id": "123",
+      "message": "bonjour je mappelle dev1",
+      "date": 1583248239303,
+      "senderID": "1",
+      "forumID": "1"
+    },
+    {
+      "id": "124",
+      "message": "bonjour je mappelle dev2",
+      "date": 1583248299999,
+      "senderID": "2",
+      "forumID": "1"
+    },
+    {
+      "id": "123",
+      "message": "bonjour je mappelle dev3",
+      "date": 1583248239303,
+      "senderID": "3",
+      "forumID": "2"
+    },
+    {
+      "id": "124",
+      "message": "bonjour je mappelle dev2",
+      "date": 1583888299999,
+      "senderID": "2",
+      "forumID": "2"
+    }
+  ]
+}
