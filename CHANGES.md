@@ -34,6 +34,22 @@ mutation {
 }
 ```
 
+#### Enum
+
+````graphql
+enum TypeForum {
+  PRIVATE
+  PUBLIC
+}
+
+```graphql
+enum Status {
+  approved
+  refused
+  waiting
+}
+````
+
 ### No change
 
 ## GraphQl Type
