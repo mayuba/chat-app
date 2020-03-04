@@ -91,11 +91,12 @@ type User {
 
 ### Enum
 
-````graphql
+```graphql
 enum TypeForum {
   PRIVATE
   PUBLIC
 }
+```
 
 ```graphql
 enum Status {
@@ -103,7 +104,7 @@ enum Status {
   refused
   waiting
 }
-````
+```
 
 ## GraphQl Schema
 
@@ -187,7 +188,7 @@ mutation {
 
 ### A user can create a new forum (and join it automatically)
 
-````graphql
+```graphql
 mutation {
   createForum(input: { userID: "3", name: "forum test", type: PRIVATE }) {
     name
@@ -210,7 +211,7 @@ mutation {
     message
   }
 }
-````
+```
 
 #### If the request is accepted, the user automatically joins the forum.
 
